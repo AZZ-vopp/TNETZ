@@ -119,12 +119,12 @@ jobs:
         run: go mod download
 
 
-      - name: Build XrayR
+      - name: Build TNETZ
         run: |
           mkdir -p build_assets
           go build -v -o build_assets/XrayR -trimpath -ldflags "-s -w -buildid=" ./main
 
-      - name: Build Mips softfloat XrayR
+      - name: Build Mips softfloat TNETZ
         if: matrix.goarch == 'mips' || matrix.goarch == 'mipsle'
         run: |
           GOMIPS=softfloat go build -v -o build_assets/XrayR_softfloat -trimpath -ldflags "-s -w -buildid=" ./main
